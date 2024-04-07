@@ -81,6 +81,7 @@ void SnakeGame::run() {
     }
 }
 
+//điều khiển hướng của rắn
 void SnakeGame::handleInput() {
     SDL_Event event;
     if (SDL_PollEvent(&event)) {
@@ -112,6 +113,7 @@ void SnakeGame::handleInput() {
     }
 }
 
+//cập nhật vị trí rắn và kiểm tra có chạm thức ăn hay tường
 void SnakeGame::update() {
     // Move the snake
     Point next = snake.front();
@@ -130,7 +132,7 @@ void SnakeGame::update() {
             break;
     }
 
-    // Check if snake collides with itself or wall
+    // kiểm tra rắn chạm tường hay chạm vào nó
     if (next.x < 0 || next.x >= GRID_WIDTH || next.y < 0 || next.y >= GRID_HEIGHT || checkCollision(next)) {
         gameOver();
         return;
@@ -138,7 +140,7 @@ void SnakeGame::update() {
 
     snake.insert(snake.begin(), next);
 
-    // Check if snake eats food
+    // kiểm tra rắn ăn thức ăn
     if (next.x == food.x && next.y == food.y) {
         placeFood();
     } else {
@@ -146,18 +148,19 @@ void SnakeGame::update() {
     }
 }
 
+//vẽ rắn và thức ăn
 void SnakeGame::render() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-    // Render snake
+    // vẽ rắn
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
     for (Point const &p : snake) {
         SDL_Rect rect = { p.x * CELL_SIZE, p.y * CELL_SIZE, CELL_SIZE, CELL_SIZE };
         SDL_RenderFillRect(renderer, &rect);
     }
 
-    // Render food
+    // vẽ thức ăn
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
     SDL_Rect rect = { food.x * CELL_SIZE, food.y * CELL_SIZE, CELL_SIZE, CELL_SIZE };
     SDL_RenderFillRect(renderer, &rect);
@@ -165,6 +168,7 @@ void SnakeGame::render() {
     SDL_RenderPresent(renderer);
 }
 
+// đặt thức ăn ngẫu nhiên
 void SnakeGame::placeFood() {
     srand(time(NULL));
     bool valid = false;
@@ -181,6 +185,7 @@ void SnakeGame::placeFood() {
     }
 }
 
+// kiểm tra điểm mới của rắn có va chạm vào nó hay không
 bool SnakeGame::checkCollision(Point p) {
     for (size_t i = 1; i < snake.size(); ++i) {
         if (snake[i].x == p.x && snake[i].y == p.y) {
