@@ -1,11 +1,17 @@
 # depslib dependency file v1.0
-1712498538 source:c:\users\dell\documents\github\baitaplon\snakehunter\main.cpp
-	<bits/stdc++.h>
-	"mylid.h"
-
-1712238877 c:\users\dell\documents\github\baitaplon\snakehunter\mylid.h
-	<stdio.h>
-	<conio.h>
+1712501419 source:c:\users\dell\documents\github\baitaplon\snakehunter2\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_timer.h>
+	<SDL_image.h>
+	<vector>
 	<ctime>
-	"windows.h"
+
+1712501545 source:c:\users\dell\documents\github\baitaplon\snakehunter\main.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_timer.h>
+	<SDL_image.h>
+	<vector>
+	<ctime>
 
