@@ -7,11 +7,12 @@
 	<vector>
 	<ctime>
 
-1712501545 source:c:\users\dell\documents\github\baitaplon\snakehunter\main.cpp
+1712572252 source:c:\users\dell\documents\github\baitaplon\snakehunter\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_timer.h>
 	<SDL_image.h>
 	<vector>
 	<ctime>
+	<SDL_mixer.h>
 
