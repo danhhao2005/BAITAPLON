@@ -4,6 +4,8 @@
 #include <SDL_image.h>
 #include <vector>
 #include <ctime>
+#include "snakeHunter.h"
+#include "graphics.h"
 
 
 #ifdef _WIN32
@@ -12,11 +14,6 @@
 
 using namespace std;
 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
-const int CELL_SIZE = 20;
-const int GRID_WIDTH = SCREEN_WIDTH / CELL_SIZE;
-const int GRID_HEIGHT = SCREEN_HEIGHT / CELL_SIZE;
 
 struct Point {
     int x, y;

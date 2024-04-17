@@ -7,12 +7,26 @@
 	<vector>
 	<ctime>
 
-1712572252 source:c:\users\dell\documents\github\baitaplon\snakehunter\main.cpp
+1713335500 source:c:\users\dell\documents\github\baitaplon\snakehunter\main.cpp
 	<iostream>
 	<SDL.h>
 	<SDL_timer.h>
 	<SDL_image.h>
 	<vector>
 	<ctime>
-	<SDL_mixer.h>
+	"snakeHunter.h"
+	"graphics.h"
+
+1713321799 c:\users\dell\documents\github\baitaplon\snakehunter\snakehunter.h
+
+1713335477 c:\users\dell\documents\github\baitaplon\snakehunter\graphics.h
+	<SDL.h>
+	<SDL_image.h>
+	"snakeHunter.h"
+
+1713335477 source:c:\users\dell\documents\github\baitaplon\snakehunter\graphics.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	"graphics.h"
 
