@@ -1,0 +1,117 @@
+# depslib dependency file v1.0
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\baseobj.cpp
+	"BaseObj.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\baseobj.h
+	"define.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\define.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<time.h>
+	<string>
+	<vector>
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\bulletobj.cpp
+	"BulletObj.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\bulletobj.h
+	"BaseObj.h"
+	"define.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\explosionobject.cpp
+	"ExplosionObject.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\explosionobject.h
+	"BaseObj.h"
+	"define.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\gamemain.cpp
+	"GameMain.h"
+	"ImpTimer.h"
+	"ExplosionObject.h"
+	"Geometric.h"
+	"TCommon.h"
+	"Sound.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\gamemain.h
+	"define.h"
+	"BaseObj.h"
+	"PlayerObj.h"
+	"TrObject.h"
+	"Geometric.h"
+	"PlayerBlood.h"
+	"TextObject.h"
+	"MenuGame.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\playerobj.h
+	"BaseObj.h"
+	"define.h"
+	"BulletObj.h"
+	"TCommon.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\tcommon.h
+	"define.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\trobject.h
+	"define.h"
+	"BaseObj.h"
+	"BulletObj.h"
+	"TCommon.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\geometric.h
+	"define.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\playerblood.h
+	"define.h"
+	"BaseObj.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\textobject.h
+	"define.h"
+	"TCommon.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\menugame.h
+	"define.h"
+	"BaseObj.h"
+	"Geometric.h"
+	"TextObject.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\imptimer.h
+	"define.h"
+
+1714446003 c:\users\dell\documents\github\baitaplon\acraftwar\sound.h
+	"define.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\geometric.cpp
+	"Geometric.h"
+
+1714446003 source:c:\users\dell\documents\github\baitaplon\acraftwar\imptimer.cpp
+	"ImpTimer.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\main.cpp
+	"GameMain.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\menugame.cpp
+	"MenuGame.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\playerblood.cpp
+	"PlayerBlood.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\playerobj.cpp
+	"PlayerObj.h"
+	"Sound.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\sound.cpp
+	"Sound.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\tcommon.cpp
+	"TCommon.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\textobject.cpp
+	"TextObject.h"
+
+1714446540 source:c:\users\dell\documents\github\baitaplon\acraftwar\trobject.cpp
+	"TrObject.h"
+
