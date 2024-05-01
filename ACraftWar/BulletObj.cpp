@@ -27,9 +27,7 @@ BulletObj::BulletObj(int type, int dir_type, int x_speed, int y_speed, int scope
 }
 
 BulletObj::~BulletObj()
-{
-
-}
+{}
 
 bool BulletObj::Init(VT(string) path_list, int xp, int yp, SDL_Renderer* screen)
 {
