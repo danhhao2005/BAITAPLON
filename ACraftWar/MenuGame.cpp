@@ -3,7 +3,7 @@
 
 using namespace std;
 
-MenuGame::MenuGame(bool is_bkgn /*= true*/)
+MenuGame::MenuGame(bool is_bkgn)
 {
 	m_Type = 0;
 	m_isDrawBkgn = is_bkgn;

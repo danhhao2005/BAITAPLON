@@ -17,12 +17,9 @@ GameMain::GameMain()
     m_GameState = GameStatus::GAME_START;
     m_Font30 = NULL;
     m_TimeDown = 60;
-    m_Mark = 0;
     srand((unsigned int)time(0));
     m_Frame1s = 0;
     m_Event.type = -1;
-
-    m_MarkGoal = 100;
 }
 
 GameMain::~GameMain()
@@ -500,7 +497,7 @@ void GameMain::Loop()
                 m_EndMenu.SetTextContent(sData, 0);
             }
 
-            RenderMark();
+
 
             RenderTimeDown();
             if (m_TimeDown < 0)
@@ -556,7 +553,7 @@ void GameMain::Loop()
             }
 
             pExpAds->Render(m_Screen);
-            RenderMark();
+
 
             m_PauseMenu.Render(m_Screen);
             int is = m_PauseMenu.GetSelect();
@@ -611,20 +608,6 @@ void GameMain::RenderTimeDown(bool is_active)
     m_TTime.RenderText(m_Screen);
 }
 
-void GameMain::RenderMark()
-{
-    string sMark = to_string(m_Mark);
-    string sPoint = "Point: " + sMark;
-    m_TextMark.SetText(sPoint);
-    m_TextMark.LoadFromRenderedText(m_Font30, m_Screen);
-    m_TextMark.RenderText(m_Screen);
-
-    string sMarkGoal = to_string(m_MarkGoal);
-    string sSlash = "[" + sMarkGoal + "]";
-    m_TextGoal.SetText(sSlash);
-    m_TextGoal.LoadFromRenderedText(m_Font30, m_Screen);
-    m_TextGoal.RenderText(m_Screen);
-}
 
 void GameMain::Close()
 {

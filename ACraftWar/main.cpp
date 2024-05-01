@@ -10,7 +10,6 @@ int main()
     bool bLoadData = GameMain::GetInstance()->LoadData();
     if (bInit == true && bLoadData == true)
     {
-        // Call Loop Function here
         GameMain::GetInstance()->Loop();
     }
 

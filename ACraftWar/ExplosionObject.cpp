@@ -35,7 +35,6 @@ ExplosionObject::ExplosionObject(int frameNum)
 
 ExplosionObject::~ExplosionObject()
 {
-
 }
 
 
