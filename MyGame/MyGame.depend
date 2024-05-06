@@ -1,0 +1,40 @@
+# depslib dependency file v1.0
+1714743951 source:c:\users\dell\documents\github\baitaplon\mygame\main.cpp
+	<iostream>
+	"CommonFunc.h"
+	"BaseObject.h"
+	"game_map.h"
+	"MainObject.h"
+
+1714639485 source:c:\users\dell\documents\github\baitaplon\mygame\commonfunc.cpp
+	"CommonFunc.h"
+
+1714744439 c:\users\dell\documents\github\baitaplon\mygame\commonfunc.h
+	<windows.h>
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1714640345 source:c:\users\dell\documents\github\baitaplon\mygame\baseobject.cpp
+	"BaseObject.h"
+
+1714640345 c:\users\dell\documents\github\baitaplon\mygame\baseobject.h
+	"CommonFunc.h"
+
+1714664465 source:c:\users\dell\documents\github\baitaplon\mygame\game_map.cpp
+	"game_map.h"
+
+1715011837 c:\users\dell\documents\github\baitaplon\mygame\game_map.h
+	<iostream>
+	"CommonFunc.h"
+	"BaseObject.h"
+
+1715011837 c:\users\dell\documents\github\baitaplon\mygame\mainobject.h
+	"CommonFunc.h"
+	"BaseObject.h"
+
+1714744468 source:c:\users\dell\documents\github\baitaplon\mygame\mainobject.cpp
+	"MainObject.h"
+
