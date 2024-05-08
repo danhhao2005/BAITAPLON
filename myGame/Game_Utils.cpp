@@ -305,9 +305,9 @@ void GenerateEnemy(Enemy& enemy1,
 	SDL_Rect(&gEnemyClips)[FLYING_FRAMES],
 	SDL_Renderer * gRenderer)
 {
-	enemy1.LoadFromFile("imgs/enemy/cactus.png", gRenderer);
-	enemy2.LoadFromFile("imgs/enemy/cactus.png", gRenderer);
-	enemy3.LoadFromFile("imgs/enemy/bat.png", gRenderer);
+	enemy1.LoadFromFile("imgs/enemy/e1.png", gRenderer);
+	enemy2.LoadFromFile("imgs/enemy/e2.png", gRenderer);
+	enemy3.LoadFromFile("imgs/enemy/dragon.png", gRenderer);
 	{
 		gEnemyClips[0].x = 43 * 3;
 		gEnemyClips[0].y = 0;

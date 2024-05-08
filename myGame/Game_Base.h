@@ -48,7 +48,7 @@
 
 using namespace std;
 
-const string WINDOW_TITLE = "Dino in jungle";
+const string WINDOW_TITLE = "My Game";
 
 const int SCREEN_WIDTH = 928;
 const int SCREEN_HEIGHT = 522;

@@ -63,180 +63,6 @@ Button ContinueButton(CONTINUE_BUTTON_POSX, CONTINUE_BUTTON_POSY);
 
 Character character;
 
-int main(int argc, char* argv[])
-{
-	if (!Init())
-	{
-		printf("Failed to initialize!\n");
-	}
-	else
-	{
-		if (!LoadMedia())
-		{
-			printf("Failed to load media!\n");
-		}
-		else
-		{
-			bool Quit_Menu = false;
-			bool Play_Again = false;
-
-			Mix_PlayMusic(gMenuMusic, IS_REPEATITIVE);
-			while (!Quit_Menu)
-			{
-				SDL_Event e_mouse;
-				while (SDL_PollEvent(&e_mouse) != 0)
-				{
-					if (e_mouse.type == SDL_QUIT)
-					{
-						Quit_Menu = true;
-					}
-
-					bool Quit_Game = false;
-					HandlePlayButton(&e_mouse, PlayButton, Quit_Menu, Play_Again, gClick);
-
-					HandleHelpButton(&e_mouse, gBackButton,
-									 HelpButton, BackButton,
-									 gInstructionTexture, gBackButtonTexture,
-									 gRenderer, Quit_Game, gClick);
-
-					HandleExitButton(&e_mouse, ExitButton, Quit_Menu, gClick);
-
-					if (Quit_Game == true)
-					{
-						return 0;
-					}
-				}
-
-				gMenuTexture.Render(0, 0, gRenderer);
-
-				SDL_Rect* currentClip_Play = &gPlayButton[PlayButton.currentSprite];
-				PlayButton.Render(currentClip_Play, gRenderer, gPlayButtonTexture);
-
-				SDL_Rect* currentClip_Help = &gHelpButton[HelpButton.currentSprite];
-				HelpButton.Render(currentClip_Help, gRenderer, gHelpButtonTexture);
-
-				SDL_Rect* currentClip_Exit = &gExitButton[ExitButton.currentSprite];
-				ExitButton.Render(currentClip_Exit, gRenderer, gExitButtonTexture);
-
-				SDL_RenderPresent(gRenderer);
-			}
-
-			while (Play_Again)
-			{
-				srand(time(NULL));
-				int time = 0;
-				int score = 0;
-				int acceleration = 0;
-				int frame_Character = 0;
-				int frame_Enemy = 0;
-				string highscore = GetHighScoreFromFile("high_score.txt");
-
-				SDL_Event e;
-				Enemy enemy1(ON_GROUND_ENEMY);
-				Enemy enemy2(ON_GROUND_ENEMY);
-				Enemy enemy3(IN_AIR_ENEMY);
-
-				Mix_PlayMusic(gMusic, IS_REPEATITIVE);
-				GenerateEnemy(enemy1, enemy2, enemy3, gEnemyClips, gRenderer);
-
-				int OffsetSpeed_Ground = BASE_OFFSET_SPEED;
-				vector <double> OffsetSpeed_Bkgr(BACKGROUND_LAYER, BASE_OFFSET_SPEED);
-
-				bool Quit = false;
-				bool Game_State = true;
-				while (!Quit)
-				{
-					if (Game_State)
-					{
-						UpdateGameTimeAndScore(time, acceleration, score);
-
-						while (SDL_PollEvent(&e) != 0)
-						{
-							if (e.type == SDL_QUIT)
-							{
-								Quit = true;
-								Play_Again = false;
-							}
-
-							HandlePauseButton(&e, gRenderer, gContinueButton,
-								PauseButton, ContinueButton,
-								gContinueButtonTexture, Game_State, gClick);
-
-							character.HandleEvent(e, gJump);
-						}
-						SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
-						SDL_RenderClear(gRenderer);
-
-						RenderScrollingBackground(OffsetSpeed_Bkgr, gBackgroundTexture, gRenderer);
-						RenderScrollingGround(OffsetSpeed_Ground, acceleration, gGroundTexture, gRenderer);
-
-
-						character.Move();
-						SDL_Rect* currentClip_Character = nullptr;
-						if (character.OnGround())
-						{
-							currentClip_Character = &gCharacterClips[frame_Character / SLOW_FRAME_CHAR];
-							character.Render(currentClip_Character, gRenderer, gCharacterTexture);
-						}
-						else
-						{
-							currentClip_Character = &gCharacterClips[0];
-							character.Render(currentClip_Character, gRenderer, gCharacterTexture);
-						}
-
-
-						enemy1.Move(acceleration);
-						enemy1.Render(gRenderer);
-
-						enemy2.Move(acceleration);
-						enemy2.Render(gRenderer);
-
-						SDL_Rect* currentClip_Enemy = &gEnemyClips[frame_Enemy / SLOW_FRAME_ENEMY];
-						enemy3.Move(acceleration);
-						enemy3.Render(gRenderer, currentClip_Enemy);
-
-
-						SDL_Rect* currentClip_Pause = &gPauseButton[PauseButton.currentSprite];
-						PauseButton.Render(currentClip_Pause, gRenderer, gPauseButtonTexture);
-
-
-						DrawPlayerScore(gText1Texture, gScoreTexture, textColor, gRenderer, gFont, score);
-						DrawPlayerHighScore(gText2Texture, gHighScoreTexture, textColor, gRenderer, gFont, highscore);
-
-						if (CheckEnemyColission(character,
-							enemy1, enemy2, enemy3,
-							currentClip_Character, currentClip_Enemy))
-						{
-							Mix_PauseMusic();
-							Mix_PlayChannel(MIX_CHANNEL, gLose, NOT_REPEATITIVE);
-							UpdateHighScore("high_score.txt", score, highscore);
-							Quit = true;
-						}
-
-
-						SDL_RenderPresent(gRenderer);
-
-						ControlCharFrame(frame_Character);
-						ControlEnemyFrame(frame_Enemy);
-					}
-				}
-
-				DrawEndGameSelection(gLoseTexture, &e, gRenderer, Play_Again);
-				if (!Play_Again)
-				{
-					enemy1.~Enemy();
-					enemy2.~Enemy();
-					enemy3.~Enemy();
-				}
-			}
-		}
-	}
-	Close();
-
-	return 0;
-}
-
-
 bool Init()
 {
 	bool success = true;
@@ -366,7 +192,7 @@ bool LoadMedia()
 
 			if (!gInstructionTexture.LoadFromFile("imgs/background/instruction.png", gRenderer))
 			{
-				cout << "Failed to load instruction image" << endl;
+                 cout << "Failed to load instruction image" << endl;
 				success = false;
 			}
 
@@ -573,3 +399,178 @@ void Close()
 	Mix_Quit();
 	SDL_Quit();
 }
+
+int main(int argc, char* argv[])
+{
+	if (!Init())
+	{
+		printf("Failed to initialize!\n");
+	}
+	else
+	{
+		if (!LoadMedia())
+		{
+			printf("Failed to load media!\n");
+		}
+		else
+		{
+			bool Quit_Menu = false;
+			bool Play_Again = false;
+
+			Mix_PlayMusic(gMenuMusic, IS_REPEATITIVE);
+			while (!Quit_Menu)
+			{
+				SDL_Event e_mouse;
+				while (SDL_PollEvent(&e_mouse) != 0)
+				{
+					if (e_mouse.type == SDL_QUIT)
+					{
+						Quit_Menu = true;
+					}
+
+					bool Quit_Game = false;
+					HandlePlayButton(&e_mouse, PlayButton, Quit_Menu, Play_Again, gClick);
+
+					HandleHelpButton(&e_mouse, gBackButton,
+									 HelpButton, BackButton,
+									 gInstructionTexture, gBackButtonTexture,
+									 gRenderer, Quit_Game, gClick);
+
+					HandleExitButton(&e_mouse, ExitButton, Quit_Menu, gClick);
+
+					if (Quit_Game == true)
+					{
+						return 0;
+					}
+				}
+
+				gMenuTexture.Render(0, 0, gRenderer);
+
+				SDL_Rect* currentClip_Play = &gPlayButton[PlayButton.currentSprite];
+				PlayButton.Render(currentClip_Play, gRenderer, gPlayButtonTexture);
+
+				SDL_Rect* currentClip_Help = &gHelpButton[HelpButton.currentSprite];
+				HelpButton.Render(currentClip_Help, gRenderer, gHelpButtonTexture);
+
+				SDL_Rect* currentClip_Exit = &gExitButton[ExitButton.currentSprite];
+				ExitButton.Render(currentClip_Exit, gRenderer, gExitButtonTexture);
+
+				SDL_RenderPresent(gRenderer);
+			}
+
+			while (Play_Again)
+			{
+				srand(time(NULL));
+				int time = 0;
+				int score = 0;
+				int acceleration = 0;
+				int frame_Character = 0;
+				int frame_Enemy = 0;
+				string highscore = GetHighScoreFromFile("high_score.txt");
+
+				SDL_Event e;
+				Enemy enemy1(ON_GROUND_ENEMY);
+				Enemy enemy2(ON_GROUND_ENEMY);
+				Enemy enemy3(IN_AIR_ENEMY);
+
+				Mix_PlayMusic(gMusic, IS_REPEATITIVE);
+				GenerateEnemy(enemy1, enemy2, enemy3, gEnemyClips, gRenderer);
+
+				int OffsetSpeed_Ground = BASE_OFFSET_SPEED;
+				vector <double> OffsetSpeed_Bkgr(BACKGROUND_LAYER, BASE_OFFSET_SPEED);
+
+				bool Quit = false;
+				bool Game_State = true;
+				while (!Quit)
+				{
+					if (Game_State)
+					{
+						UpdateGameTimeAndScore(time, acceleration, score);
+
+						while (SDL_PollEvent(&e) != 0)
+						{
+							if (e.type == SDL_QUIT)
+							{
+								Quit = true;
+								Play_Again = false;
+							}
+
+							HandlePauseButton(&e, gRenderer, gContinueButton,
+								PauseButton, ContinueButton,
+								gContinueButtonTexture, Game_State, gClick);
+
+							character.HandleEvent(e, gJump);
+						}
+						SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+						SDL_RenderClear(gRenderer);
+
+						RenderScrollingBackground(OffsetSpeed_Bkgr, gBackgroundTexture, gRenderer);
+						RenderScrollingGround(OffsetSpeed_Ground, acceleration, gGroundTexture, gRenderer);
+
+
+						character.Move();
+						SDL_Rect* currentClip_Character = nullptr;
+						if (character.OnGround())
+						{
+							currentClip_Character = &gCharacterClips[frame_Character / SLOW_FRAME_CHAR];
+							character.Render(currentClip_Character, gRenderer, gCharacterTexture);
+						}
+						else
+						{
+							currentClip_Character = &gCharacterClips[0];
+							character.Render(currentClip_Character, gRenderer, gCharacterTexture);
+						}
+
+
+						enemy1.Move(acceleration);
+						enemy1.Render(gRenderer);
+
+						enemy2.Move(acceleration);
+						enemy2.Render(gRenderer);
+
+						SDL_Rect* currentClip_Enemy = &gEnemyClips[frame_Enemy / SLOW_FRAME_ENEMY];
+						enemy3.Move(acceleration);
+						enemy3.Render(gRenderer, currentClip_Enemy);
+
+
+						SDL_Rect* currentClip_Pause = &gPauseButton[PauseButton.currentSprite];
+						PauseButton.Render(currentClip_Pause, gRenderer, gPauseButtonTexture);
+
+
+						DrawPlayerScore(gText1Texture, gScoreTexture, textColor, gRenderer, gFont, score);
+						DrawPlayerHighScore(gText2Texture, gHighScoreTexture, textColor, gRenderer, gFont, highscore);
+
+						if (CheckEnemyColission(character,
+							enemy1, enemy2, enemy3,
+							currentClip_Character, currentClip_Enemy))
+						{
+							Mix_PauseMusic();
+							Mix_PlayChannel(MIX_CHANNEL, gLose, NOT_REPEATITIVE);
+							UpdateHighScore("high_score.txt", score, highscore);
+							Quit = true;
+						}
+
+
+						SDL_RenderPresent(gRenderer);
+
+						ControlCharFrame(frame_Character);
+						ControlEnemyFrame(frame_Enemy);
+					}
+				}
+
+				DrawEndGameSelection(gLoseTexture, &e, gRenderer, Play_Again);
+				if (!Play_Again)
+				{
+					enemy1.~Enemy();
+					enemy2.~Enemy();
+					enemy3.~Enemy();
+				}
+			}
+		}
+	}
+	Close();
+
+	return 0;
+}
+
+

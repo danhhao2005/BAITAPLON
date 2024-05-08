@@ -6,7 +6,7 @@
 	"Game_Base.h"
 	"LTexture.h"
 
-1715097733 c:\users\dell\documents\github\baitaplon\mygame\game_base.h
+1715140598 c:\users\dell\documents\github\baitaplon\mygame\game_base.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
@@ -39,7 +39,7 @@
 1715097531 source:c:\users\dell\documents\github\baitaplon\mygame\ltexture.cpp
 	"LTexture.h"
 
-1715097531 source:c:\users\dell\documents\github\baitaplon\mygame\game_utils.cpp
+1715142688 source:c:\users\dell\documents\github\baitaplon\mygame\game_utils.cpp
 	"Game_Utils.h"
 
 1715097822 c:\users\dell\documents\github\baitaplon\mygame\game_utils.h
@@ -48,7 +48,7 @@
 	"Enemy.h"
 	"Character.h"
 
-1715097531 source:c:\users\dell\documents\github\baitaplon\mygame\main.cpp
+1715103622 source:c:\users\dell\documents\github\baitaplon\mygame\main.cpp
 	"Game_Base.h"
 	"Game_Utils.h"
 	"LTexture.h"
