@@ -3,17 +3,20 @@
 
 Character::Character()
 {
+    //khoi tao trang thai ban dau
 	posX = SCREEN_WIDTH - 700;
 	posY = GROUND;
 
 	status = 0;
 }
 
+//kiem tra xem co dung tren mat dat khong
 bool Character::OnGround()
 {
 	return posY == GROUND;
 }
 
+//dieu khien nhan vat
 void Character::HandleEvent(SDL_Event& e, Mix_Chunk *gJump)
 {
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0)
@@ -32,6 +35,7 @@ void Character::HandleEvent(SDL_Event& e, Mix_Chunk *gJump)
 	}
 }
 
+//trang thai nhay cua nhan vat
 void Character::Move()
 {
 	if (status == JUMP && posY >= MAX_HEIGHT)
@@ -48,6 +52,7 @@ void Character::Move()
 	}
 }
 
+//ve nhan vat len man hinh
 void Character::Render(SDL_Rect* currentClip, SDL_Renderer *gRenderer, LTexture gCharacterTexture)
 {
 	gCharacterTexture.Render(posX, posY, gRenderer, currentClip);

@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy(int _type)
+Enemy::Enemy(int _type)//type xac dinh loai cua Enemy
 {
 	posX = 0;
 	posY = 0;
@@ -23,6 +23,7 @@ Enemy::Enemy(int _type)
 	EnemyTexture = nullptr;
 }
 
+//gia phong toan bo bo nho cua Enemy
 Enemy::~Enemy()
 {
 	posX = 0;
@@ -38,6 +39,7 @@ Enemy::~Enemy()
 	}
 }
 
+//load Enemy
 void Enemy::LoadFromFile(string path, SDL_Renderer* gRenderer)
 {
 	SDL_Texture* tmpTexture = nullptr;
@@ -68,6 +70,7 @@ void Enemy::LoadFromFile(string path, SDL_Renderer* gRenderer)
 	EnemyTexture = tmpTexture;
 }
 
+//Enemy di chuyen
 void Enemy::Move(const int &acceleration)
 {
 	posX += -(ENEMY_SPEED + acceleration);
@@ -82,6 +85,7 @@ void Enemy::Move(const int &acceleration)
 	}
 }
 
+//ve Enemy len man hinh
 void Enemy::Render(SDL_Renderer* gRenderer, SDL_Rect* currentClip)
 {
 	SDL_Rect renderSpace = { posX, posY, eWidth, eHeight };

@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1715097531 source:c:\users\dell\documents\github\baitaplon\mygame\button.cpp
+1715266877 source:c:\users\dell\documents\github\baitaplon\mygame\button.cpp
 	"Button.h"
 
 1715097531 c:\users\dell\documents\github\baitaplon\mygame\button.h
 	"Game_Base.h"
 	"LTexture.h"
 
-1715140598 c:\users\dell\documents\github\baitaplon\mygame\game_base.h
+1715266877 c:\users\dell\documents\github\baitaplon\mygame\game_base.h
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
@@ -21,13 +21,13 @@
 1715097531 c:\users\dell\documents\github\baitaplon\mygame\ltexture.h
 	"Game_Base.h"
 
-1715097181 source:c:\users\dell\documents\github\baitaplon\mygame\character.cpp
+1715266877 source:c:\users\dell\documents\github\baitaplon\mygame\character.cpp
 	"Character.h"
 
 1715097531 c:\users\dell\documents\github\baitaplon\mygame\character.h
 	"LTexture.h"
 
-1715097531 source:c:\users\dell\documents\github\baitaplon\mygame\enemy.cpp
+1715266877 source:c:\users\dell\documents\github\baitaplon\mygame\enemy.cpp
 	"Enemy.h"
 
 1715097531 c:\users\dell\documents\github\baitaplon\mygame\enemy.h
@@ -39,16 +39,16 @@
 1715097531 source:c:\users\dell\documents\github\baitaplon\mygame\ltexture.cpp
 	"LTexture.h"
 
-1715142688 source:c:\users\dell\documents\github\baitaplon\mygame\game_utils.cpp
+1715268088 source:c:\users\dell\documents\github\baitaplon\mygame\game_utils.cpp
 	"Game_Utils.h"
 
-1715097822 c:\users\dell\documents\github\baitaplon\mygame\game_utils.h
+1715268088 c:\users\dell\documents\github\baitaplon\mygame\game_utils.h
 	"Game_Base.h"
 	"Button.h"
 	"Enemy.h"
 	"Character.h"
 
-1715103622 source:c:\users\dell\documents\github\baitaplon\mygame\main.cpp
+1715268100 source:c:\users\dell\documents\github\baitaplon\mygame\main.cpp
 	"Game_Base.h"
 	"Game_Utils.h"
 	"LTexture.h"

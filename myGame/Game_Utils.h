@@ -6,7 +6,9 @@
 #include "Enemy.h"
 #include "Character.h"
 
+
 using namespace std;
+
 
 bool Init();
 bool LoadMedia();
@@ -19,15 +21,6 @@ void UpdateHighScore(string path,
     const string& old_high_score);
 
 int UpdateGameTimeAndScore(int& time, int& speed, int& score);
-
-void RenderScrollingBackground(vector <double>& offsetSpeed,
-    LTexture(&gBackgroundTexture)[BACKGROUND_LAYER],
-    SDL_Renderer* gRenderer);
-
-void RenderScrollingGround(int& speed,
-    const int acceleration,
-    LTexture gGroundTexture,
-    SDL_Renderer* gRenderer);
 
 void HandlePlayButton(SDL_Event* e,
     Button& PlayButton,
@@ -106,5 +99,11 @@ void DrawEndGameSelection(LTexture gLoseTexture,
     SDL_Event* e,
     SDL_Renderer* gRenderer,
     bool& Play_Again);
+
+bool Init();
+
+bool LoadMedia();
+
+void Close();
 
 #endif // !GAME_UTILS_H_

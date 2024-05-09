@@ -5,18 +5,6 @@
 #include "Character.h"
 #include "Enemy.h"
 
-const string LAYER[BACKGROUND_LAYER] = {
-	"imgs/background/layer01.png",
-	"imgs/background/layer02.png",
-	"imgs/background/layer03.png",
-	"imgs/background/layer04.png",
-	"imgs/background/layer05.png",
-	"imgs/background/layer06.png",
-	"imgs/background/layer07.png",
-	"imgs/background/layer08.png",
-	"imgs/background/layer09.png",
-};
-
 SDL_Window* gWindow = nullptr;
 SDL_Renderer* gRenderer = nullptr;
 SDL_Color textColor = { 0, 0, 0 };
@@ -39,7 +27,7 @@ SDL_Rect gEnemyClips[FLYING_FRAMES];
 
 LTexture gMenuTexture;
 LTexture gInstructionTexture;
-LTexture gBackgroundTexture[BACKGROUND_LAYER];
+LTexture gBackgroundTexture;
 LTexture gCharacterTexture;
 LTexture gGroundTexture;
 LTexture gPlayButtonTexture;
@@ -292,20 +280,17 @@ bool LoadMedia()
 				}
 			}
 
-			for (int i = 0; i < BACKGROUND_LAYER; ++i)
-			{
-				if (!gBackgroundTexture[i].LoadFromFile(LAYER[i].c_str(), gRenderer))
-				{
-					cout << "Failed to load background image" << endl;
-					success = false;
-				}
-			}
-
 			if (!gGroundTexture.LoadFromFile("imgs/background/ground.png", gRenderer))
 			{
 				cout << "Failed to load ground image" << endl;
 				success = false;
 			}
+
+            if (!gBackgroundTexture.LoadFromFile("imgs/background/background.png", gRenderer))
+                 {
+                    cout << "Failed to load background image" << endl;
+                    success = false;
+                 }
 
 			if (!gCharacterTexture.LoadFromFile("imgs/character/char.png", gRenderer))
 			{
@@ -360,7 +345,8 @@ void Close()
 	gMenuTexture.Free();
 	gInstructionTexture.Free();
 	gCharacterTexture.Free();
-	gGroundTexture.Free();
+    gBackgroundTexture.Free();
+    gGroundTexture.Free();
 	gPlayButtonTexture.Free();
 	gHelpButtonTexture.Free();
 	gExitButtonTexture.Free();
@@ -372,11 +358,6 @@ void Close()
 	gScoreTexture.Free();
 	gText2Texture.Free();
 	gHighScoreTexture.Free();
-
-	for (int i = 0; i < BACKGROUND_LAYER; ++i)
-	{
-		gBackgroundTexture[i].Free();
-	}
 
 	Mix_FreeMusic(gMusic);
 	Mix_FreeMusic(gMenuMusic);
@@ -399,6 +380,7 @@ void Close()
 	Mix_Quit();
 	SDL_Quit();
 }
+
 
 int main(int argc, char* argv[])
 {
@@ -476,9 +458,6 @@ int main(int argc, char* argv[])
 				Mix_PlayMusic(gMusic, IS_REPEATITIVE);
 				GenerateEnemy(enemy1, enemy2, enemy3, gEnemyClips, gRenderer);
 
-				int OffsetSpeed_Ground = BASE_OFFSET_SPEED;
-				vector <double> OffsetSpeed_Bkgr(BACKGROUND_LAYER, BASE_OFFSET_SPEED);
-
 				bool Quit = false;
 				bool Game_State = true;
 				while (!Quit)
@@ -504,9 +483,8 @@ int main(int argc, char* argv[])
 						SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 						SDL_RenderClear(gRenderer);
 
-						RenderScrollingBackground(OffsetSpeed_Bkgr, gBackgroundTexture, gRenderer);
-						RenderScrollingGround(OffsetSpeed_Ground, acceleration, gGroundTexture, gRenderer);
-
+                        gBackgroundTexture.Render(0, 0, gRenderer);
+                        gGroundTexture.Render(0, 0, gRenderer);
 
 						character.Move();
 						SDL_Rect* currentClip_Character = nullptr;

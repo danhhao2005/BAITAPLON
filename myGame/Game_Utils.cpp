@@ -5,7 +5,7 @@ string GetHighScoreFromFile(string path)
 	fstream HighScoreFile;
 	string highscore;
 
-	HighScoreFile.open(path, std::ios::in);
+	HighScoreFile.open(path, ios::in);
 	HighScoreFile >> highscore;
 
 	return highscore;
@@ -53,47 +53,6 @@ int UpdateGameTimeAndScore(int& time,
 	time += TIME_INCREASEMENT;
 
 	return time;
-}
-
-void RenderScrollingBackground(vector <double>& offsetSpeed,
-	LTexture(&gBackgroundTexture)[BACKGROUND_LAYER],
-	SDL_Renderer* gRenderer)
-{
-	vector <double> layer_speed;
-	layer_speed.push_back(LAYER_1_SPEED);
-	layer_speed.push_back(LAYER_2_SPEED);
-	layer_speed.push_back(LAYER_3_SPEED);
-	layer_speed.push_back(LAYER_4_SPEED);
-	layer_speed.push_back(LAYER_5_SPEED);
-	layer_speed.push_back(LAYER_6_SPEED);
-	layer_speed.push_back(LAYER_7_SPEED);
-	layer_speed.push_back(LAYER_8_SPEED);
-	layer_speed.push_back(LAYER_9_SPEED);
-
-	for (int i = 0; i < BACKGROUND_LAYER; ++i)
-	{
-		offsetSpeed[i] -= layer_speed[i];
-		if (offsetSpeed[i] < -gBackgroundTexture[i].GetWidth())
-		{
-			offsetSpeed[i] = 0;
-		}
-		gBackgroundTexture[i].Render(offsetSpeed[i], 0, gRenderer);
-		gBackgroundTexture[i].Render(offsetSpeed[i] + gBackgroundTexture[i].GetWidth(), 0, gRenderer);
-	}
-}
-
-void RenderScrollingGround(int& speed,
-	const int acceleration,
-	LTexture gGroundTexture,
-	SDL_Renderer* gRenderer)
-{
-	speed -= GROUND_SPEED + acceleration;
-	if (speed < -gGroundTexture.GetWidth())
-	{
-		speed = 0;
-	}
-	gGroundTexture.Render(speed, 0, gRenderer);
-	gGroundTexture.Render(speed + gGroundTexture.GetWidth(), 0, gRenderer);
 }
 
 void HandlePlayButton(SDL_Event* e,
@@ -500,3 +459,4 @@ void DrawEndGameSelection(LTexture gLoseTexture,
 		}
 	}
 }
+

@@ -22,6 +22,7 @@ void Button::SetPosition(int x, int y)
 	position.y = y;
 }
 
+//kiem tra con tro chuot co nam trong nut hay khong
 bool Button::IsInside(SDL_Event *e, int size)
 {
 	if (e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP)
@@ -63,6 +64,7 @@ bool Button::IsInside(SDL_Event *e, int size)
 	return false;
 }
 
+//ve nut
 void Button::Render(SDL_Rect* currentClip, SDL_Renderer* gRenderer, LTexture gButtonTexture)
 {
 	gButtonTexture.Render(position.x, position.y, gRenderer, currentClip);
