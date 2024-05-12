@@ -480,7 +480,7 @@ int main(int argc, char* argv[])
 
 							character.HandleEvent(e, gJump);
 						}
-						SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+//						SDL_SetRenderDrawColor(gRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
 						SDL_RenderClear(gRenderer);
 
                         gBackgroundTexture.Render(0, 0, gRenderer);
