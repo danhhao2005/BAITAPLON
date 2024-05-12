@@ -375,6 +375,7 @@ bool CheckEnemyColission(Character character,
 	return false;
 }
 
+//tao animation cho nhan vat
 void ControlCharFrame(int &frame)
 {
 	frame += FRAME_INCREASEMENT;
@@ -384,6 +385,7 @@ void ControlCharFrame(int &frame)
 	}
 }
 
+//tao animation cho enemy
 void ControlEnemyFrame(int &frame)
 {
 	frame += FRAME_INCREASEMENT;
