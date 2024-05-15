@@ -449,10 +449,10 @@ void DrawEndGameSelection(LTexture gLoseTexture,
 					case SDLK_SPACE:
 						End_Game = true;
 						break;
-					case SDLK_ESCAPE:
-						End_Game = true;
-						Play_Again = false;
-						break;
+//					case SDLK_ESCAPE:
+//						End_Game = true;
+//						Play_Again = false;
+//						break;
 					}
 				}
 			}
