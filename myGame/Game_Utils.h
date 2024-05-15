@@ -100,10 +100,4 @@ void DrawEndGameSelection(LTexture gLoseTexture,
     SDL_Renderer* gRenderer,
     bool& Play_Again);
 
-bool Init();
-
-bool LoadMedia();
-
-void Close();
-
 #endif // !GAME_UTILS_H_

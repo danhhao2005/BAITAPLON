@@ -16,7 +16,7 @@ bool Character::OnGround()
 	return posY == GROUND;
 }
 
-//dieu khien nhan vat
+//nhan vat nhay
 void Character::HandleEvent(SDL_Event& e, Mix_Chunk *gJump)
 {
 	if (e.type == SDL_KEYDOWN && e.key.repeat == 0)

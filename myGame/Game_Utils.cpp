@@ -1,5 +1,7 @@
 #include "Game_Utils.h"
 
+using namespace std;
+
 string GetHighScoreFromFile(string path)
 {
 	fstream HighScoreFile;
@@ -461,4 +463,5 @@ void DrawEndGameSelection(LTexture gLoseTexture,
 		}
 	}
 }
+
 

@@ -49,8 +49,6 @@ Button BackButton(BACK_BUTTON_POSX, BACK_BUTTON_POSY);
 Button PauseButton(PAUSE_BUTTON_POSX, PAUSE_BUTTON_POSY);
 Button ContinueButton(CONTINUE_BUTTON_POSX, CONTINUE_BUTTON_POSY);
 
-Character character;
-
 bool Init()
 {
 	bool success = true;
@@ -380,6 +378,11 @@ void Close()
 	Mix_Quit();
 	SDL_Quit();
 }
+
+
+
+Character character;
+
 
 
 int main(int argc, char* argv[])
