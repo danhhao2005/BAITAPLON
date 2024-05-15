@@ -1,3 +1,4 @@
+
 #include "Enemy.h"
 
 Enemy::Enemy(int _type)//type xac dinh loai cua Enemy

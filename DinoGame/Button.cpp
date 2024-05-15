@@ -69,3 +69,4 @@ void Button::Render(SDL_Rect* currentClip, SDL_Renderer* gRenderer, LTexture gBu
 {
 	gButtonTexture.Render(position.x, position.y, gRenderer, currentClip);
 }
+

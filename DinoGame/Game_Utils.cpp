@@ -1,3 +1,4 @@
+
 #include "Game_Utils.h"
 
 using namespace std;
@@ -284,16 +285,6 @@ void GenerateEnemy(Enemy& enemy1,
 		gEnemyClips[2].y = 0;
 		gEnemyClips[2].w = 43;
 		gEnemyClips[2].h = 30;
-
-		gEnemyClips[3].x = 43;
-		gEnemyClips[3].y = 0;
-		gEnemyClips[3].w = 43;
-		gEnemyClips[3].h = 30;
-
-		gEnemyClips[4].x = 0;
-		gEnemyClips[4].y = 0;
-		gEnemyClips[4].w = 43;
-		gEnemyClips[4].h = 30;
 	}
 }
 
@@ -449,10 +440,6 @@ void DrawEndGameSelection(LTexture gLoseTexture,
 					case SDLK_SPACE:
 						End_Game = true;
 						break;
-//					case SDLK_ESCAPE:
-//						End_Game = true;
-//						Play_Again = false;
-//						break;
 					}
 				}
 			}

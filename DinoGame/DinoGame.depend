@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1715783122 source:c:\users\dell\documents\github\baitaplon\dinogame\button.cpp
+	"Button.h"
+
+1715783407 c:\users\dell\documents\github\baitaplon\dinogame\button.h
+	"Game_Base.h"
+	"LTexture.h"
+
+1715783407 c:\users\dell\documents\github\baitaplon\dinogame\game_base.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<ctime>
+
+1715783407 c:\users\dell\documents\github\baitaplon\dinogame\ltexture.h
+	"Game_Base.h"
+
+1715783122 source:c:\users\dell\documents\github\baitaplon\dinogame\character.cpp
+	"Character.h"
+
+1715783407 c:\users\dell\documents\github\baitaplon\dinogame\character.h
+	"LTexture.h"
+
+1715783122 source:c:\users\dell\documents\github\baitaplon\dinogame\enemy.cpp
+	"Enemy.h"
+
+1715783407 c:\users\dell\documents\github\baitaplon\dinogame\enemy.h
+	"LTexture.h"
+
+1715783122 source:c:\users\dell\documents\github\baitaplon\dinogame\game_base.cpp
+	"Game_Base.h"
+
+1715783122 source:c:\users\dell\documents\github\baitaplon\dinogame\game_utils.cpp
+	"Game_Utils.h"
+
+1715783407 c:\users\dell\documents\github\baitaplon\dinogame\game_utils.h
+	"Game_Base.h"
+	"Button.h"
+	"Enemy.h"
+	"Character.h"
+
+1715783122 source:c:\users\dell\documents\github\baitaplon\dinogame\ltexture.cpp
+	"LTexture.h"
+
+1715783122 source:c:\users\dell\documents\github\baitaplon\dinogame\main.cpp
+	"Game_Base.h"
+	"Game_Utils.h"
+	"LTexture.h"
+	"Button.h"
+	"Character.h"
+	"Enemy.h"
+

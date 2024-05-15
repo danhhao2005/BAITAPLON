@@ -19,3 +19,4 @@ void LogError(string msg, int error_code)
 		cout << msg << TTF_GetError() << endl;
 	}
 }
+

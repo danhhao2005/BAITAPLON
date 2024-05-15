@@ -67,3 +67,4 @@ int Character::GetPosY()
 {
 	return posY;
 }
+
